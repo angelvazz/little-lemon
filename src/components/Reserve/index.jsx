@@ -7,7 +7,7 @@ import {
   FormLabel,
 } from './ReserveElements';
 
-export default function BookingForm() {
+export default function BookingForm({ onBooking }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +22,7 @@ export default function BookingForm() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    onBooking(formData.time);
     alert(
       `Booking Submitted!\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nDate: ${formData.date}\nTime: ${formData.time}\nParty Size: ${formData.guests}`
     );
